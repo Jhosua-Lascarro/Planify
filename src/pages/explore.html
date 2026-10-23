@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta name="description"
+        content="Explora alojamientos en Barranquilla con Planify: compara espacios, precios y ubicaciones en el mapa." />
+
+    <title>Alojamientos en Barranquilla — Planify</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="preconnect" href="https://images.unsplash.com" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+
+    <link rel="stylesheet" href="../styles/styles.css" />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
+    <script src="../scripts/explorar.js" defer></script>
+
+</head>
+
+<body class="explore-page">
+
+    <header class="site-header results-header">
+
+        <div class="header-inner">
+
+            <a class="brand" href="../index.html#inicio">
+
+                <svg class="brand-mark" viewBox="0 0 32 36">
+
+                    <path
+                        d="M16 2.8c-2.1 0-3.7 1.7-5 4.2L2.8 23.4c-2.4 4.7 1 9 5 9 2.8 0 5.1-1.7 8.2-5.3 3.1 3.6 5.4 5.3 8.2 5.3 4 0 7.4-4.3 5-9L21 7c-1.3-2.5-2.9-4.2-5-4.2Zm0 5.1c.7 0 1.5 1.1 2.2 2.4l7.9 15.1c1.1 2.1-.1 3.8-1.9 3.8-1.7 0-3.7-1.8-6.1-4.7l-2.1-2.6-2.1 2.6c-2.4 2.9-4.4 4.7-6.1 4.7-1.8 0-3-1.7-1.9-3.8l7.9-15.1c.7-1.3 1.5-2.4 2.2-2.4Z"
+                        fill="currentColor" />
+
+                </svg>
+
+                <span>Planify</span>
+
+            </a>
+
+            <nav class="top-nav">
+
+                <a class="nav-option active" href="../index.html#alojamientos">Alojamientos</a>
+
+                <a class="nav-option" href="../index.html#mis-alojamientos">Mis alojamientos</a>
+
+            </nav>
+
+            <div class="header-actions">
+
+                <button class="profile-button" type="button" title="Cuenta">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <circle cx="12" cy="8" r="3.6" />
+
+                        <path d="M5 20a7 7 0 0 1 14 0" />
+
+                    </svg>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <nav class="filters-strip">
+
+        <div class="filters-scroll">
+
+            <button class="filter-chip filter-chip-primary" type="button" data-filter><svg viewBox="0 0 24 24">
+
+                    <path d="M4 7h8M16 7h4M4 17h4M12 17h8M12 4v6M8 14v6M15 4v6" />
+
+                </svg>Filtros</button>
+
+            <span class="filter-separator"></span>
+
+            <button class="filter-chip" type="button" data-filter>Llegada autónoma</button>
+
+            <button class="filter-chip" type="button" data-filter>Reserva inmediata</button>
+
+            <button class="filter-chip" type="button" data-filter>Estacionamiento gratis</button>
+
+            <button class="filter-chip" type="button" data-filter>Wifi</button>
+
+            <button class="filter-chip" type="button" data-filter>Aire acondicionado</button>
+
+            <button class="filter-chip" type="button" data-filter>Lavadora</button>
+
+            <button class="filter-chip" type="button" data-filter>TV</button>
+
+            <button class="filter-chip" type="button" data-filter>1+ habitaciones</button>
+
+            <button class="filter-chip" type="button" data-filter>Piscina</button>
+
+            <button class="filter-chip" type="button" data-filter>Cocina</button>
+
+        </div>
+
+    </nav>
+
+    <main class="results-layout">
+
+        <section class="results-panel">
+
+            <div class="results-summary">
+
+                <div class="results-summary-title">
+
+                    <h1 id="results-title">Más de 1.000 alojamientos en Barranquilla</h1>
+
+                    <p>Explora espacios para las fechas seleccionadas.</p>
+
+                </div>
+
+            </div>
+
+            <div class="result-grid">
+
+                <article class="result-card" data-property-id="stay-1" data-lat="10.9979" data-lng="-74.8152"
+                    data-price="$351.750 COP" data-title="Loft en Barranquilla">
+
+                    <div class="result-photo-wrap">
+
+                        <a class="result-photo-link" href="#listingMap" data-show-map="stay-1"><img
+                                src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85"
+                                alt="Sala de apartamento moderno con mobiliario neutro" fetchpriority="high" /></a>
+
+                    </div>
+
+                    <div class="result-info">
+
+                        <div class="result-title-line"><a href="#listingMap" class="result-title-link"
+                                data-show-map="stay-1">
+
+                                <h2>Loft en Barranquilla</h2>
+
+                            </a><span class="result-rating">★ 4,92 <span>(48)</span></span></div>
+
+                        <p class="result-description">Moderno loft en GZ Tower</p>
+
+                        <p class="result-features">1 habitación · 2 camas · 1 baño</p>
+
+                        <p class="result-price"><s>$464.274 COP</s> <strong>$351.750 COP</strong> <span>por 2
+
+                                noches</span></p>
+
+                    </div>
+
+                </article>
+
+                <article class="result-card" data-property-id="stay-2" data-lat="11.0037" data-lng="-74.8078"
+                    data-price="$380.800 COP" data-title="Apartamento central">
+
+                    <div class="result-photo-wrap">
+
+                        <a class="result-photo-link" href="#listingMap" data-show-map="stay-2"><img
+                                src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=85"
+                                alt="Dormitorio contemporáneo con cama amplia y luz cálida" loading="lazy" /></a>
+
+                    </div>
+
+                    <div class="result-info">
+
+                        <div class="result-title-line"><a href="#listingMap" class="result-title-link"
+                                data-show-map="stay-2">
+
+                                <h2>Apartamento en Barranquilla</h2>
+
+                            </a><span class="result-rating">★ 5,0 <span>(16)</span></span></div>
+
+                        <p class="result-description">Cerca de restaurantes y comercios</p>
+
+                        <p class="result-features">1 habitación · 1 cama doble · 1 baño</p>
+
+                        <p class="result-price"><strong>$380.800 COP</strong> <span>por 2 noches</span></p>
+
+                    </div>
+
+                </article>
+
+                <article class="result-card" data-property-id="stay-3" data-lat="11.0118" data-lng="-74.8240"
+                    data-price="$532.000 COP" data-title="Apartamento con terraza">
+
+                    <div class="result-photo-wrap">
+
+                        <a class="result-photo-link" href="#listingMap" data-show-map="stay-3"><img
+                                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85"
+                                alt="Sala de diseño contemporáneo con tonos cálidos" loading="lazy" /></a>
+
+                    </div>
+
+                    <div class="result-info">
+
+                        <div class="result-title-line"><a href="#listingMap" class="result-title-link"
+                                data-show-map="stay-3">
+
+                                <h2>Apartamento en Puerto Colombia</h2>
+
+                            </a><span class="result-rating">★ 5,0 <span>(16)</span></span></div>
+
+                        <p class="result-description">Diseño moderno con vista abierta</p>
+
+                        <p class="result-features">2 habitaciones · 2 camas · 2 baños</p>
+
+                        <p class="result-price"><strong>$532.000 COP</strong> <span>por 2 noches</span></p>
+
+                    </div>
+
+                </article>
+
+                <article class="result-card" data-property-id="stay-4" data-lat="10.9912" data-lng="-74.8054"
+                    data-price="$230.000 COP" data-title="Habitación privada">
+
+                    <div class="result-photo-wrap">
+
+                        <a class="result-photo-link" href="#listingMap" data-show-map="stay-4"><img
+                                src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=85"
+                                alt="Habitación luminosa con ropa de cama clara" loading="lazy" /></a>
+
+                    </div>
+
+                    <div class="result-info">
+
+                        <div class="result-title-line"><a href="#listingMap" class="result-title-link"
+                                data-show-map="stay-4">
+
+                                <h2>Habitación en Barranquilla</h2>
+
+                            </a><span class="result-rating">★ 4,84 <span>(32)</span></span></div>
+
+                        <p class="result-description">Habitación privada en apartamento</p>
+
+                        <p class="result-features">1 cama · Baño compartido</p>
+
+                        <p class="result-price"><strong>$230.000 COP</strong> <span>por 2 noches</span></p>
+
+                    </div>
+
+                </article>
+
+                <article class="result-card" data-property-id="stay-5" data-lat="10.9797" data-lng="-74.8189"
+                    data-price="$254.500 COP" data-title="Loft cerca del centro">
+
+                    <div class="result-photo-wrap">
+
+                        <a class="result-photo-link" href="#listingMap" data-show-map="stay-5"><img
+                                src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85"
+                                alt="Sala de estar con sofá y mesa de centro" loading="lazy" /></a>
+
+                    </div>
+
+                    <div class="result-info">
+
+                        <div class="result-title-line"><a href="#listingMap" class="result-title-link"
+                                data-show-map="stay-5">
+
+                                <h2>Loft en Barranquilla</h2>
+
+                            </a><span class="result-rating">★ 4,96 <span>(48)</span></span></div>
+
+                        <p class="result-description">Espacio tranquilo con cocina equipada</p>
+
+                        <p class="result-features">1 habitación · 2 camas · 1 baño</p>
+
+                        <p class="result-price"><strong>$254.500 COP</strong> <span>por 2 noches</span></p>
+
+                    </div>
+
+                </article>
+
+                <article class="result-card" data-property-id="stay-6" data-lat="11.0027" data-lng="-74.7918"
+                    data-price="$466.000 COP" data-title="Apartamento con balcón">
+
+                    <div class="result-photo-wrap">
+
+                        <a class="result-photo-link" href="#listingMap" data-show-map="stay-6"><img
+                                src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1000&q=85"
+                                alt="Apartamento con balcón y luz natural" loading="lazy" /></a>
+
+                    </div>
+
+                    <div class="result-info">
+
+                        <div class="result-title-line"><a href="#listingMap" class="result-title-link"
+                                data-show-map="stay-6">
+
+                                <h2>Apartamento en Barranquilla</h2>
+
+                            </a><span class="result-rating">★ 4,93 <span>(21)</span></span></div>
+
+                        <p class="result-description">Balcón privado cerca del Malecón</p>
+
+                        <p class="result-features">2 habitaciones · 3 camas · 2 baños</p>
+
+                        <p class="result-price"><strong>$466.000 COP</strong> <span>por 2 noches</span></p>
+
+                    </div>
+
+                </article>
+
+                <article class="result-card" data-property-id="stay-7" data-lat="10.9854" data-lng="-74.7929"
+                    data-price="$396.915 COP" data-title="Apartamento familiar">
+
+                    <div class="result-photo-wrap">
+
+                        <a class="result-photo-link" href="#listingMap" data-show-map="stay-7"><img
+                                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85"
+                                alt="Sala y comedor amplio en apartamento moderno" loading="lazy" /></a>
+
+                    </div>
+
+                    <div class="result-info">
+
+                        <div class="result-title-line"><a href="#listingMap" class="result-title-link"
+                                data-show-map="stay-7">
+
+                                <h2>Apartamento familiar</h2>
+
+                            </a><span class="result-rating">★ 4,91 <span>(38)</span></span></div>
+
+                        <p class="result-description">Amplio, cómodo y cerca de restaurantes</p>
+
+                        <p class="result-features">2 habitaciones · 3 camas · 2 baños</p>
+
+                        <p class="result-price"><strong>$396.915 COP</strong> <span>por 2 noches</span></p>
+
+                    </div>
+
+                </article>
+
+                <article class="result-card" data-property-id="stay-8" data-lat="11.0190" data-lng="-74.8158"
+                    data-price="$288.489 COP" data-title="Estudio con diseño moderno">
+
+                    <div class="result-photo-wrap">
+
+                        <a class="result-photo-link" href="#listingMap" data-show-map="stay-8"><img
+                                src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=85"
+                                alt="Estudio de diseño con muebles minimalistas" loading="lazy" /></a>
+
+                    </div>
+
+                    <div class="result-info">
+
+                        <div class="result-title-line"><a href="#listingMap" class="result-title-link"
+                                data-show-map="stay-8">
+
+                                <h2>Estudio en Barranquilla</h2>
+
+                            </a><span class="result-rating">★ 4,89 <span>(27)</span></span></div>
+
+                        <p class="result-description">Estudio práctico con acabados cálidos</p>
+
+                        <p class="result-features">1 cama · 1 baño</p>
+
+                        <p class="result-price"><strong>$288.489 COP</strong> <span>por 2 noches</span></p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <p class="results-disclaimer">Precios y alojamientos de ejemplo para la demostración visual de Planify.</p>
+
+        </section>
+
+        <aside class="map-panel">
+
+            <div class="map-frame">
+
+                <div class="map-schematic">
+
+                    <div class="map-park park-one"></div>
+
+                    <div class="map-park park-two"></div>
+
+                    <div class="map-park park-three"></div>
+
+                    <span class="map-place place-one">VILLA CAROLINA</span><span
+                        class="map-place place-two">RIOMAR</span><span class="map-place place-three">ALTO
+
+                        PRADO</span><span class="map-place place-four">CENTRO HISTÓRICO</span><span
+                        class="map-place place-five">EL PRADO</span>
+
+                    <span class="map-landmark landmark-one">Parque Electrificadora</span><span
+                        class="map-landmark landmark-two">Gran Malecón</span><span
+                        class="map-landmark landmark-three">Parque Sagrado Corazón</span>
+
+                    <span class="schematic-price schematic-price-one">$351.750 COP</span><span
+                        class="schematic-price schematic-price-two">$380.800 COP</span><span
+                        class="schematic-price schematic-price-three">$532.000 COP</span><span
+                        class="schematic-price schematic-price-four">$230.000 COP</span><span
+                        class="schematic-price schematic-price-five">$254.500 COP</span><span
+                        class="schematic-price schematic-price-six">$466.000 COP</span><span
+                        class="schematic-price schematic-price-seven">$396.915 COP</span><span
+                        class="schematic-price schematic-price-eight">$288.489 COP</span>
+
+                </div>
+
+                <div id="listingMap" class="listing-map"></div>
+
+                <button class="map-expand-button" type="button" data-map-expand title="Expandir mapa">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M8 4H4v4M16 4h4v4M20 16v4h-4M4 16v4h4M4 8l6-6M20 8l-6-6M4 16l6 6M20 16l-6 6" />
+                    </svg>
+                </button>
+
+                <div class="map-location-pill"><span>●</span> Barranquilla</div>
+
+                <div class="map-loading-note" data-map-note>Mapa de referencia · Los alojamientos son ilustrativos</div>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+    <footer class="site-footer" id="mis-alojamientos">
+        <div class="footer-main">
+            <div class="footer-inner footer-columns">
+                <div class="footer-brand-column">
+                    <a class="brand footer-brand" href="../index.html#inicio">
+                        <svg class="brand-mark" viewBox="0 0 32 36">
+                            <path
+                                d="M16 2.8c-2.1 0-3.7 1.7-5 4.2L2.8 23.4c-2.4 4.7 1 9 5 9 2.8 0 5.1-1.7 8.2-5.3 3.1 3.6 5.4 5.3 8.2 5.3 4 0 7.4-4.3 5-9L21 7c-1.3-2.5-2.9-4.2-5-4.2Zm0 5.1c.7 0 1.5 1.1 2.2 2.4l7.9 15.1c1.1 2.1-.1 3.8-1.9 3.8-1.7 0-3.7-1.8-6.1-4.7l-2.1-2.6-2.1 2.6c-2.4 2.9-4.4 4.7-6.1 4.7-1.8 0-3-1.7-1.9-3.8l7.9-15.1c.7-1.3 1.5-2.4 2.2-2.4Z"
+                                fill="currentColor" />
+                        </svg>
+                        <span>Planify</span>
+                    </a>
+                    <p>Encuentra espacios que convierten cada viaje en una buena historia.</p>
+                    <span class="footer-note">Viaja a tu manera.</span>
+                </div>
+                <div class="footer-link-group">
+                    <h2>Planify</h2>
+                    <a href="../index.html#mis-alojamientos">Sobre nosotros</a>
+                    <a href="../index.html#mis-alojamientos">Centro de ayuda</a>
+                    <a href="../index.html#mis-alojamientos">Privacidad y términos</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-wrap">
+            <div class="footer-inner footer-bottom">
+                <p>© 2026 Planify, Inc.</p>
+
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

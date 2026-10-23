@@ -1,0 +1,10 @@
+import { defineConfig } from "oxlint";
+
+export default defineConfig({
+  plugins: ["typescript"],
+  categories: {
+    correctness: "error",
+    suspicious: "warn",
+    perf: "warn"
+  },
+});
